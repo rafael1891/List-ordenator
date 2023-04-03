@@ -1,0 +1,36 @@
+public class ListOrdenator {
+    public static List<Integer> Ordenate(List<Integer> input, Boolean order) {
+        List<Integer> ord = new List<Integer>();
+        for (integer i : input) {
+    		if (ord.size() == 0) {
+        	ord.add(i);
+    		} else {
+    			for (integer j : ord) {
+	       			if (i <= j) {
+    	       			ord.add(ord.indexOf(j), i);
+               			break;
+           			} else {
+               			if (ord.indexOf(j) == ord.size() - 1) {
+                   			ord.add(i);
+                   			break;
+               			} else {
+               				continue;
+           				}
+        			}
+    			} 
+    		}
+		}
+        system.debug(input);
+		system.debug(ord);
+        if (order == false) {
+            List<Integer> ordback = new Integer[ord.size()];
+            for (Integer i = 0 ; i < ord.size() ; i++) {
+				ordback[i] = ord[ord.size() -1 -i];               
+            }
+            system.debug(ordback);
+        	return ordback;
+        } else {
+            return ord;
+        }
+    }
+}
