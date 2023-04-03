@@ -1,0 +1,18 @@
+@isTest
+public without sharing class ListOrdenatorTest {
+    @isTest
+    static void ListOrdenatorTestMethod() {
+        List<Integer> l = new List<Integer>{8,4,12,0,4,-10,0,1,-1};
+    	List<Integer> lo = ListOrdenator.Ordenate(l, true);
+    	System.assertEquals(l.size(), lo.size(), 'list sizes are not the same');
+		l.sort();
+        for (Integer i = 0 ; i < l.size() ; i++) {
+            System.assertEquals(l[i], lo[i], 'some caca at index ' + i);
+        }
+        system.debug('now testing backwards method');
+        List<Integer> loback = ListOrdenator.Ordenate(l, false);
+        for (Integer i = 0 ; i < l.size() ; i++) {
+        	System.assertEquals(l[i], loback[l.size() - 1 - i]);   
+        }
+    }
+}
